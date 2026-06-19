@@ -1,0 +1,602 @@
+/* ===== CSS Custom Properties ===== */
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --secondary: #ec4899;
+  --accent: #06b6d4;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark {
+  --glass-bg: rgba(30, 41, 59, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* ===== Smooth Scrolling ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Selection Colors ===== */
+::selection {
+  background-color: rgba(99, 102, 241, 0.3);
+  color: inherit;
+}
+
+.dark ::selection {
+  background-color: rgba(99, 102, 241, 0.5);
+}
+
+/* ===== Scrollbar Styling ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, var(--primary-dark), #db2777);
+}
+
+/* ===== Glassmorphism ===== */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* ===== Loading Screen ===== */
+#loading-screen {
+  transition:
+    opacity 0.5s ease,
+    visibility 0.5s ease;
+}
+
+#loading-screen.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader {
+  width: 60px;
+  height: 60px;
+  border: 4px solid #e2e8f0;
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin-loader 1s linear infinite;
+}
+
+.dark .loader {
+  border-color: #334155;
+  border-top-color: var(--primary);
+}
+
+@keyframes spin-loader {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== Navbar ===== */
+#navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.5);
+}
+
+.dark #navbar {
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom-color: rgba(51, 65, 85, 0.5);
+}
+
+#navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.dark #navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Active nav link */
+.nav-link.active {
+  color: var(--primary);
+  background-color: rgba(99, 102, 241, 0.08);
+}
+
+.dark .nav-link.active {
+  color: #818cf8;
+  background-color: rgba(99, 102, 241, 0.15);
+}
+
+/* ===== Mobile Menu ===== */
+#mobile-menu {
+  transition: all 0.3s ease;
+}
+
+#mobile-menu:not(.hidden) {
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Typing Effect ===== */
+#typing-text {
+  min-height: 1.5em;
+}
+
+.typing-cursor {
+  animation: blink-cursor 0.8s step-end infinite;
+  font-weight: 100;
+}
+
+@keyframes blink-cursor {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ===== Scroll Reveal Animations ===== */
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-up.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(40px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delay for children */
+.reveal-up:nth-child(1) {
+  transition-delay: 0s;
+}
+.reveal-up:nth-child(2) {
+  transition-delay: 0.1s;
+}
+.reveal-up:nth-child(3) {
+  transition-delay: 0.2s;
+}
+.reveal-up:nth-child(4) {
+  transition-delay: 0.3s;
+}
+.reveal-up:nth-child(5) {
+  transition-delay: 0.4s;
+}
+.reveal-up:nth-child(6) {
+  transition-delay: 0.5s;
+}
+.reveal-up:nth-child(7) {
+  transition-delay: 0.6s;
+}
+.reveal-up:nth-child(8) {
+  transition-delay: 0.7s;
+}
+.reveal-up:nth-child(9) {
+  transition-delay: 0.8s;
+}
+.reveal-up:nth-child(10) {
+  transition-delay: 0.9s;
+}
+
+/* ===== Profile Portrait ===== */
+.profile-portrait {
+  position: relative;
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.5s ease;
+}
+
+.profile-portrait:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -12px rgba(99, 102, 241, 0.4);
+}
+
+.profile-portrait img {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
+
+.profile-portrait:hover img {
+  transform: scale(1.05);
+}
+
+.profile-portrait .glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .profile-portrait .glass {
+  background: rgba(15, 23, 42, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* ===== Skill Pills ===== */
+.skills-pills-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid #e2e8f0;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #1e293b;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: default;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.dark .skill-pill {
+  border-color: #334155;
+  background: rgba(30, 41, 59, 0.7);
+  color: #e2e8f0;
+}
+
+.skill-pill.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-pill:hover {
+  transform: translateY(-3px) scale(1.05);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.2);
+}
+
+.skill-pill:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+.skill-pill-dot {
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.skill-pill:hover .skill-pill-dot {
+  transform: scale(1.5);
+}
+
+.skill-pill-label {
+  white-space: nowrap;
+}
+
+/* ===== Project Card ===== */
+.project-card {
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-card.hidden-project {
+  display: none;
+}
+
+/* ===== Service Card ===== */
+.service-card {
+  transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ===== Timeline ===== */
+.timeline-item {
+  position: relative;
+}
+
+/* ===== Back to Top Button ===== */
+#back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ===== Animated Counter ===== */
+.counter {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===== Form Focus States ===== */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* ===== Floating Particles ===== */
+.particle {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ===== Social Icon Hover ===== */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+/* ===== Line Clamp ===== */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  /* Standard property for browsers that support the spec */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ===== Filter Button Active State ===== */
+.filter-btn.active {
+  background: linear-gradient(to right, var(--primary), var(--primary-dark));
+  color: white;
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+}
+
+/* ===== Mobile Menu Button Animation ===== */
+#mobile-menu-btn i {
+  transition: transform 0.3s ease;
+}
+
+#mobile-menu-btn.active i {
+  transform: rotate(90deg);
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  /* Reduce particle count on mobile */
+  .particle:nth-child(n + 4) {
+    display: none;
+  }
+
+  /* Adjust hero section */
+  #home {
+    padding-top: 6rem;
+  }
+
+  /* Timeline adjustments for mobile */
+  .timeline-item .md\:text-right {
+    text-align: left !important;
+  }
+
+  /* Smaller skill cards spacing */
+  .skill-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  /* Further reduce particles */
+  .particle:nth-child(n + 3) {
+    display: none;
+  }
+
+  /* Stack buttons */
+  .flex-col-sm {
+    flex-direction: column;
+  }
+}
+
+/* ===== Reduce Motion Preference ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== Print Styles ===== */
+@media print {
+  #navbar,
+  #mobile-menu,
+  #back-to-top,
+  #loading-screen,
+  .particle {
+    display: none !important;
+  }
+
+  #home {
+    min-height: auto;
+    padding-top: 2rem;
+  }
+
+  .glass {
+    background: white !important;
+    border: 1px solid #e2e8f0 !important;
+    box-shadow: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: #0f172a !important;
+  }
+}
+
+/* ===== Dark Mode Specific Styles ===== */
+.dark .glass {
+  background: rgba(30, 41, 59, 0.5);
+}
+
+/* ===== Hover Enhancements ===== */
+.skill-card:hover .skill-bar {
+  filter: brightness(1.1);
+}
+
+/* ===== Form Success/Error States ===== */
+.form-success {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15) !important;
+}
+
+.form-error {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* ===== Toast Notification ===== */
+.toast {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  z-index: 100;
+  transform: translateX(120%);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.toast.show {
+  transform: translateX(0);
+}
+
+.toast-success {
+  background: linear-gradient(to right, #10b981, #059669);
+  color: white;
+}
+
+.toast-error {
+  background: linear-gradient(to right, #ef4444, #dc2626);
+  color: white;
+}
+
+/* ===== Hero Profile Image Ring Animation ===== */
+@keyframes ring-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+}
+
+/* ===== Gradient Text Animation ===== */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.bg-gradient-to-r.from-primary.to-secondary.bg-clip-text {
+  background-size: 200% auto;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* ===== Smooth Image Loading ===== */
+img {
+  transition: opacity 0.3s ease;
+}
+
+img[loading] {
+  opacity: 0.5;
+}

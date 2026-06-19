@@ -1,0 +1,1919 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional Portfolio of a Frontend Developer and IT Student showcasing web development projects and skills."
+    />
+    <meta
+      name="keywords"
+      content="Portfolio, Frontend Developer, Web Developer, HTML, CSS, JavaScript, React"
+    />
+    <meta name="author" content="Your Name" />
+    <title>My Portfolio | Frontend Developer & IT Student</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind Config -->
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                DEFAULT: "#6366f1",
+                50: "#eef2ff",
+                100: "#e0e7ff",
+                200: "#c7d2fe",
+                300: "#a5b4fc",
+                400: "#818cf8",
+                500: "#6366f1",
+                600: "#4f46e5",
+                700: "#4338ca",
+                800: "#3730a3",
+                900: "#312e81",
+              },
+              secondary: {
+                DEFAULT: "#ec4899",
+                50: "#fdf2f8",
+                100: "#fce7f3",
+                200: "#fbcfe8",
+                300: "#f9a8d4",
+                400: "#f472b6",
+                500: "#ec4899",
+                600: "#db2777",
+                700: "#be185d",
+                800: "#9d174d",
+                900: "#831843",
+              },
+              accent: {
+                DEFAULT: "#06b6d4",
+                50: "#ecfeff",
+                100: "#cffafe",
+                200: "#a5f3fc",
+                300: "#67e8f9",
+                400: "#22d3ee",
+                500: "#06b6d4",
+                600: "#0891b2",
+                700: "#0e7490",
+                800: "#155e75",
+                900: "#164e63",
+              },
+              dark: {
+                DEFAULT: "#0f172a",
+                50: "#1e293b",
+                100: "#334155",
+                200: "#475569",
+                300: "#64748b",
+                400: "#94a3b8",
+                500: "#cbd5e1",
+                600: "#e2e8f0",
+                700: "#f1f5f9",
+              },
+            },
+            animation: {
+              float: "float 6s ease-in-out infinite",
+              "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+              "spin-slow": "spin 8s linear infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0px)" },
+                "50%": { transform: "translateY(-20px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body
+    class="font-sans antialiased bg-slate-50 text-slate-800 dark:bg-dark dark:text-slate-200 overflow-x-hidden"
+  >
+    <!-- ===================== LOADING SCREEN ===================== -->
+    <div
+      id="loading-screen"
+      class="fixed inset-0 z-[9999] bg-white dark:bg-dark flex flex-col items-center justify-center transition-opacity duration-500"
+    >
+      <div class="loader"></div>
+      <p
+        class="mt-6 text-lg font-medium text-slate-600 dark:text-slate-400 animate-pulse"
+      >
+        Loading Portfolio...
+      </p>
+    </div>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="#home" class="flex items-center gap-3 group">
+            <div
+              class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg shadow-lg group-hover:shadow-primary/50 transition-shadow duration-300"
+            >
+              R
+            </div>
+            <span
+              class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+            >
+              Portfolio
+            </span>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center gap-1">
+            <a
+              href="#home"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200"
+              >Projects</a
+            >
+            <a
+              href="#services"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200"
+              >Services</a
+            >
+            <a
+              href="#experience"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200"
+              >Experience</a
+            >
+            <a
+              href="#contact"
+              class="nav-link px-4 py-2 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all duration-200"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Right Side: Theme Toggle + Mobile Menu -->
+          <div class="flex items-center gap-3">
+            <!-- Dark Mode Toggle -->
+            <button
+              id="theme-toggle"
+              class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition-all duration-200"
+              aria-label="Toggle dark mode"
+            >
+              <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+              <i class="fas fa-moon text-indigo-300 hidden dark:block"></i>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button
+              id="mobile-menu-btn"
+              class="md:hidden w-10 h-10 rounded-lg bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition-all duration-200"
+              aria-label="Open mobile menu"
+            >
+              <i class="fas fa-bars text-lg"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden bg-white/95 dark:bg-dark/95 backdrop-blur-lg border-t border-slate-200 dark:border-slate-700 shadow-xl"
+      >
+        <div class="px-4 py-4 space-y-1">
+          <a
+            href="#home"
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
+            >Projects</a
+          >
+          <a
+            href="#services"
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
+            >Services</a
+          >
+          <a
+            href="#experience"
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
+            >Experience</a
+          >
+          <a
+            href="#contact"
+            class="mobile-nav-link block px-4 py-3 rounded-lg text-base font-medium text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-primary/5 dark:hover:bg-primary/10 transition-all"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===================== HERO SECTION ===================== -->
+    <section
+      id="home"
+      class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
+    >
+      <!-- Background Decorations -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div
+          class="absolute -top-40 -right-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute -bottom-40 -left-40 w-96 h-96 bg-secondary/20 rounded-full blur-3xl"
+        ></div>
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl"
+        ></div>
+        <!-- Floating Particles -->
+        <div
+          class="particle absolute top-20 left-10 w-3 h-3 bg-primary/40 rounded-full animate-float"
+          style="animation-delay: 0s"
+        ></div>
+        <div
+          class="particle absolute top-40 right-20 w-2 h-2 bg-secondary/50 rounded-full animate-float"
+          style="animation-delay: 1s"
+        ></div>
+        <div
+          class="particle absolute bottom-40 left-1/4 w-4 h-4 bg-accent/30 rounded-full animate-float"
+          style="animation-delay: 2s"
+        ></div>
+        <div
+          class="particle absolute top-1/3 right-1/3 w-2 h-2 bg-primary/30 rounded-full animate-float"
+          style="animation-delay: 3s"
+        ></div>
+        <div
+          class="particle absolute bottom-20 right-1/4 w-3 h-3 bg-secondary/30 rounded-full animate-float"
+          style="animation-delay: 1.5s"
+        ></div>
+      </div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Left Content -->
+          <div class="text-center lg:text-left reveal-up">
+            <div
+              class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-sm font-medium mb-6"
+            >
+              <span
+                class="w-2 h-2 rounded-full bg-primary animate-pulse"
+              ></span>
+              Available for Work
+            </div>
+
+            <h1
+              class="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4 leading-tight"
+            >
+              Hello, I'm
+              <span
+                class="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent"
+                >Mean Kunthea</span
+              >
+            </h1>
+
+            <div class="h-12 sm:h-14 mb-6">
+              <span
+                id="typing-text"
+                class="text-xl sm:text-2xl lg:text-3xl font-semibold text-slate-600 dark:text-slate-300"
+              ></span>
+              <span class="typing-cursor text-primary">|</span>
+            </div>
+
+            <p
+              class="text-lg text-slate-600 dark:text-slate-400 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed"
+            >
+              Passionate about crafting beautiful, responsive, and user-friendly
+              web experiences. I transform ideas into elegant digital solutions.
+            </p>
+
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <a
+                href="assets/resume.pdf"
+                download
+                class="group relative inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-primary to-primary-600 text-white font-semibold rounded-full shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all duration-300 overflow-hidden"
+              >
+                <span
+                  class="absolute inset-0 bg-gradient-to-r from-secondary to-primary opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></span>
+                <i class="fas fa-download relative z-10"></i>
+                <span class="relative z-10">Download CV</span>
+              </a>
+              <a
+                href="#contact"
+                class="inline-flex items-center justify-center gap-2 px-8 py-4 border-2 border-primary text-primary dark:text-primary-300 font-semibold rounded-full hover:bg-primary hover:text-white dark:hover:text-white transition-all duration-300 hover:scale-105"
+              >
+                <i class="fas fa-envelope"></i>
+                Contact Me
+              </a>
+            </div>
+
+            <!-- Social Links -->
+            <div class="flex gap-4 mt-10 justify-center lg:justify-start">
+              <a
+                href="https://github.com/yourusername"
+                target="_blank"
+                rel="noopener"
+                class="social-icon w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300"
+                aria-label="GitHub"
+              >
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a
+                href="https://linkedin.com/in/yourusername"
+                target="_blank"
+                rel="noopener"
+                class="social-icon w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300"
+                aria-label="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in text-xl"></i>
+              </a>
+              <a
+                href="https://twitter.com/yourusername"
+                target="_blank"
+                rel="noopener"
+                class="social-icon w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300"
+                aria-label="Twitter"
+              >
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+              <a
+                href="mailto:your.email@example.com"
+                class="social-icon w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300"
+                aria-label="Email"
+              >
+                <i class="fas fa-envelope text-xl"></i>
+              </a>
+              <a
+                href="https://www.facebook.com/rath.ran.9847"
+                class="social-icon w-12 h-12 rounded-full bg-white dark:bg-slate-800 shadow-lg flex items-center justify-center text-slate-600 dark:text-slate-400 hover:text-primary hover:shadow-primary/30 hover:-translate-y-1 transition-all duration-300"
+                aria-label="facebook"
+              >
+                <i class="devicon-facebook-plain"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Content - Profile Portrait -->
+          <div
+            class="flex justify-center lg:justify-end reveal-up"
+            style="animation-delay: 0.3s"
+          >
+            <div class="relative">
+              <!-- Portrait Card -->
+              <div
+                class="profile-portrait relative w-72 h-[360px] sm:w-80 sm:h-[400px] lg:w-96 lg:h-[460px] rounded-[2rem] overflow-hidden shadow-2xl"
+              >
+                <!-- Gradient Background -->
+                <div
+                  class="absolute inset-0 bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-800"
+                ></div>
+                <!-- Subtle Pattern Overlay -->
+                <div
+                  class="absolute inset-0 opacity-20"
+                  style="
+                    background-image:
+                      radial-gradient(
+                        circle at 20% 50%,
+                        rgba(255, 255, 255, 0.2) 0%,
+                        transparent 50%
+                      ),
+                      radial-gradient(
+                        circle at 80% 20%,
+                        rgba(255, 255, 255, 0.15) 0%,
+                        transparent 40%
+                      );
+                  "
+                ></div>
+                <!-- Profile Image -->
+                <img
+                  src="/images/profile_photo.png"
+                  class="absolute inset-0 w-full h-full object-cover object-top mix-blend-normal"
+                />
+                <!-- Bottom Gradient Fade -->
+                <div
+                  class="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t from-purple-900/80 to-transparent"
+                ></div>
+                <!-- Glass Overlay Info -->
+                <div
+                  class="absolute bottom-4 left-4 right-4 glass rounded-xl p-3 text-center"
+                >
+                  <p class="text-white font-semibold text-sm">Mean Kunthea</p>
+                  <p class="text-purple-200 text-xs">Frontend Developer</p>
+                </div>
+              </div>
+
+              <!-- Floating Badge - Experience -->
+              <div
+                class="absolute -bottom-4 -left-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-4 flex items-center gap-3 animate-float z-10"
+                style="animation-delay: 0.5s"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white"
+                >
+                  <i class="fas fa-code text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-slate-800 dark:text-white">
+                    2+
+                  </p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    Years Exp.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Floating Badge - Projects -->
+              <div
+                class="absolute -top-4 -right-4 bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-4 flex items-center gap-3 animate-float z-10"
+                style="animation-delay: 1s"
+              >
+                <div
+                  class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-primary flex items-center justify-center text-white"
+                >
+                  <i class="fas fa-project-diagram text-lg"></i>
+                </div>
+                <div>
+                  <p class="text-2xl font-bold text-slate-800 dark:text-white">
+                    10+
+                  </p>
+                  <p class="text-xs text-slate-500 dark:text-slate-400">
+                    Projects
+                  </p>
+                </div>
+              </div>
+
+              <!-- Decorative Sparkle -->
+              <div
+                class="absolute -top-8 left-4 text-purple-400/50 animate-pulse"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M12 2C12 2 13.5 8 18 12C13.5 16 12 22 12 22C12 22 10.5 16 6 12C10.5 8 12 2 12 2Z"
+                    fill="currentColor"
+                    fill-opacity="0.3"
+                  />
+                </svg>
+              </div>
+              <div
+                class="absolute -bottom-6 right-8 text-primary/40 animate-pulse"
+                style="animation-delay: 1s"
+              >
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M12 2C12 2 13.5 8 18 12C13.5 16 12 22 12 22C12 22 10.5 16 6 12C10.5 8 12 2 12 2Z"
+                    fill="currentColor"
+                    fill-opacity="0.3"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scroll Down Indicator -->
+        <div
+          class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 animate-bounce"
+        >
+          <span class="text-xs text-slate-400 dark:text-slate-500"
+            >Scroll Down</span
+          >
+          <i class="fas fa-chevron-down text-slate-400 dark:text-slate-500"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ABOUT SECTION ===================== -->
+    <section id="about" class="py-24 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-up">
+          <span
+            class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-sm font-semibold mb-4"
+            >About Me</span
+          >
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Explore Who
+            <span
+              class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >I Am</span
+            >
+          </h2>
+          <div
+            class="w-36 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto"
+          ></div>
+        </div>
+
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          <!-- Left - Image & Stats -->
+          <div class="reveal-up">
+            <div class="relative">
+              <!-- Background Shape -->
+              <div
+                class="absolute -inset-4 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl transform rotate-3"
+              ></div>
+              <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                src="https://cdn.dribbble.com/userupload/19379584/file/original-5f07281cad6642133d5520fda1ce8c07.png?format=webp&resize=640x480&vertical=center"
+                alt="Working on code"
+                  class="w-full h-auto object-cover"
+                />
+                <!-- Stats Overlay -->
+                <div
+                  class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6"
+                >
+                  <div class="grid grid-cols-3 gap-4 text-center">
+                    <div>
+                      <p
+                        class="text-3xl font-bold text-white counter"
+                        data-target="2"
+                      >
+                        0
+                      </p>
+                      <p class="text-sm text-slate-300">Years Experience</p>
+                    </div>
+                    <div>
+                      <p
+                        class="text-3xl font-bold text-white counter"
+                        data-target="10"
+                      >
+                        0
+                      </p>
+                      <p class="text-sm text-slate-300">Projects Done</p>
+                    </div>
+                    <div>
+                      <p
+                        class="text-3xl font-bold text-white counter"
+                        data-target="5"
+                      >
+                        0
+                      </p>
+                      <p class="text-sm text-slate-300">Happy Clients</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right - Content -->
+          <div class="reveal-up" style="animation-delay: 0.2s">
+            <h3
+              class="text-2xl sm:text-3xl font-bold mb-4 text-slate-800 dark:text-white"
+            >
+              Frontend Developer & IT Student passionate about creating amazing
+              web experiences
+            </h3>
+            <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              <!-- I'm a dedicated IT student with a strong passion for web development. Over the past 2+ years, I've been honing my skills in frontend technologies, building responsive and interactive websites that deliver exceptional user experiences. -->
+              I am a dedicated Information Technology graduate from the Royal
+              University of Phnom Penh with a strong passion for web development
+              and modern technologies. Over the past two years, I have developed
+              solid skills in frontend development, creating responsive,
+              user-friendly, and interactive web applications.
+            </p>
+            <p class="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+              My journey in tech started with a curiosity about how websites
+              work, which led me to dive deep into HTML, CSS, and JavaScript.
+              Today, I work with modern frameworks like React.js and tools like
+              Tailwind CSS to bring designs to life.
+            </p>
+            <p class="text-slate-600 dark:text-slate-400 mb-8 leading-relaxed">
+              I'm constantly learning and exploring new technologies. My goal is
+              to become a full-stack developer and contribute to building
+              innovative digital products that make a positive impact.
+            </p>
+
+            <!-- Info Cards -->
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div
+                class="info-card glass p-5 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary mb-3"
+                >
+                  <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h4 class="font-semibold text-slate-800 dark:text-white mb-1">
+                  Education
+                </h4>
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                  Bachelor of Computer Sciences and Engineering<br />Royal University of
+                  Phnom Penh (2022 - 2025)
+                </p>
+              </div>
+              <div
+                class="info-card glass p-5 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 dark:hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div
+                  class="w-10 h-10 rounded-lg bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center text-secondary mb-3"
+                >
+                  <i class="fas fa-bullseye"></i>
+                </div>
+                <h4 class="font-semibold text-slate-800 dark:text-white mb-1">
+                  Career Goal
+                </h4>
+                <p class="text-sm text-slate-500 dark:text-slate-400">
+                  Become a professional Full-Stack Developer and create
+                  impactful digital solutions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SKILLS SECTION ===================== -->
+    <section
+      id="skills"
+      class="py-24 bg-slate-100/50 dark:bg-slate-900/50 relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-up">
+          <span
+            class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-sm font-semibold mb-4"
+            >My Skills</span
+          >
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Technologies I
+            <span
+              class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >Work With</span
+            >
+          </h2>
+          <div
+            class="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-4"
+          ></div>
+          <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            I've worked with a variety of technologies in the web development
+            world. Here's my tech stack:
+          </p>
+        </div>
+
+        <!-- Skills Pills Grid -->
+        <div class="skills-pills-container">
+          <!-- Python-->
+          <div class="skill-pill" title="Python">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #03d766"
+            ></span>
+            <i class="devicon-python-plain colored"></i>
+            <span class="skill-pill-label">Python</span>
+          </div>
+          <!-- C/C++-->
+          <div class="skill-pill" title="C/C++">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #03d766"
+            ></span>
+            <i class="devicon-cplusplus-plain colored"></i>
+            <span class="skill-pill-label">C/C++</span>
+          </div>
+          <!-- HTML5 -->
+          <div class="skill-pill" title="HTML5">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #e34c26"
+            ></span>
+            <i class="devicon-html5-plain colored"></i>
+            <span class="skill-pill-label">HTML</span>
+          </div>
+          <!-- CSS3 -->
+          <div class="skill-pill" title="CSS3">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #264de4"
+            ></span>
+            <i class="devicon-css3-plain colored"></i>
+            <span class="skill-pill-label">CSS</span>
+          </div>
+          <!-- JavaScript -->
+          <div class="skill-pill" title="JavaScript">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #f7df1e"
+            ></span>
+            <i class="devicon-javascript-plain colored"></i>
+            <span class="skill-pill-label">JavaScript</span>
+          </div>
+          <!-- React.js -->
+          <div class="skill-pill" title="React.js">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #61dafb"
+            ></span>
+            <i class="devicon-react-original colored"></i>
+            <span class="skill-pill-label">React.js</span>
+          </div>
+          <!-- Tailwind CSS -->
+          <div class="skill-pill" title="Tailwind CSS">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #38bdf8"
+            ></span>
+            <i class="devicon-tailwindcss-plain colored"></i>
+            <span class="skill-pill-label">Tailwind CSS</span>
+          </div>
+          <!-- Bootstrap -->
+          <div class="skill-pill" title="Bootstrap">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #7952b3"
+            ></span>
+            <i class="devicon-bootstrap-plain colored"></i>
+            <span class="skill-pill-label">Bootstrap</span>
+          </div>
+          <!-- Postgresql -->
+          <div class="skill-pill" title="postgresql">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #00758f"
+            ></span>
+            <i class="devicon-postgresql-plain colored"></i>
+            <span class="skill-pill-label">Postgresql</span>
+          </div>
+          <!-- MySQL -->
+          <div class="skill-pill" title="MySQL">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #00758f"
+            ></span>
+            <i class="devicon-mysql-plain colored"></i>
+            <span class="skill-pill-label">MySQL</span>
+          </div>
+          <!-- SQL Server -->
+          <div class="skill-pill" title="SQL Server">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #cc2927"
+            ></span>
+            <i class="devicon-sqlserver-plain colored"></i>
+            <span class="skill-pill-label">SQL Server</span>
+          </div>
+          <!-- Git -->
+          <div class="skill-pill" title="Git ">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #f05032"
+            ></span>
+            <i class="devicon-git-plain colored"></i>
+            <span class="skill-pill-label">Git</span>
+          </div>
+
+          <!-- Github -->
+          <div class="skill-pill" title="Github ">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #f05032"
+            ></span>
+            <i class="devicon-github-plain colored"></i>
+            <span class="skill-pill-label">Github</span>
+          </div>
+
+          <!-- GitLab -->
+          <div class="skill-pill" title="GitLab ">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #f05032"
+            ></span>
+            <i class="devicon-gitlab-plain colored"></i>
+            <span class="skill-pill-label">GitLab</span>
+          </div>
+          <!-- Figma -->
+          <div class="skill-pill" title="Figma">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #f05032"
+            ></span>
+            <i class="devicon-figma-plain colored"></i>
+            <span class="skill-pill-label">Figma</span>
+          </div>
+
+          <!-- AWS -->
+          <div class="skill-pill" title="AWS">
+            <span
+              class="skill-pill-dot"
+              style="background-color: #ff9900"
+            ></span>
+            <i class="devicon-amazonwebservices-plain-wordmark colored"></i>
+            <span class="skill-pill-label">AWS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PROJECTS SECTION ===================== -->
+    <section id="projects" class="py-24 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-up">
+          <span
+            class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-sm font-semibold mb-4"
+            >My Projects</span
+          >
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Featured
+            <span
+              class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >Projects</span
+            >
+          </h2>
+          <div
+            class="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-4"
+          ></div>
+          <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            Here are some of my recent projects that showcase my skills and
+            experience:
+          </p>
+        </div>
+
+        <!-- Projects Filter -->
+        <div class="flex flex-wrap justify-center gap-3 mb-12 reveal-up">
+          <button
+            class="filter-btn active px-6 py-2.5 rounded-full text-sm font-medium bg-primary text-white transition-all duration-300 hover:shadow-lg hover:shadow-primary/30"
+            data-filter="all"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white transition-all duration-300"
+            data-filter="web"
+          >
+            Web App
+          </button>
+          <button
+            class="filter-btn px-6 py-2.5 rounded-full text-sm font-medium bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-primary hover:text-white transition-all duration-300"
+            data-filter="frontend"
+          >
+            Frontend
+          </button>
+        </div>
+
+        <!-- Projects Grid -->
+        <div class="grid md:grid-cols-2 gap-8">
+
+          <!-- Project 1 - Weather App -->
+          <div
+            class="project-card group glass rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl reveal-up"
+            data-category="frontend"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="/images/sky_bg.jpg"
+                alt="Weather App"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <!-- Overlay Links -->
+              <div
+                class="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0"
+              >
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt text-xl"></i>
+                </a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-primary transition-colors"
+              >
+                Weather Dashboard
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2"
+              >
+                A responsive weather application that displays real-time weather
+                data, forecasts, and interactive maps using OpenWeatherMap API.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300"
+                  >HTML</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300"
+                  >CSS</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-300"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600 dark:text-cyan-300"
+                  >API</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800 dark:bg-slate-700 text-white text-sm font-medium rounded-xl hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white text-sm font-medium rounded-xl hover:bg-primary-600 transition-colors"
+                >
+                  <i class="fas fa-play"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2 - Todo list  -->
+          <div
+            class="project-card group glass rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl reveal-up"
+            data-category="frontend"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="/images/todo-list.avif"
+                alt="Weather App"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <!-- Overlay Links -->
+              <div
+                class="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0"
+              >
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt text-xl"></i>
+                </a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-primary transition-colors"
+              >
+                Todo_list
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2"
+              >
+                Developed a responsive Todo List application using React.js, enabling users to add, edit, delete, and manage tasks through an intuitive and user-friendly interface.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300"
+                  >HTML</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300"
+                  >CSS</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-300"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800 dark:bg-slate-700 text-white text-sm font-medium rounded-xl hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white text-sm font-medium rounded-xl hover:bg-primary-600 transition-colors"
+                >
+                  <i class="fas fa-play"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3 - Movie  -->
+          <div
+            class="project-card group glass rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl reveal-up"
+            style="animation-delay: 0.3s"
+            data-category="web"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=350&fit=crop"
+                alt="Movie Website"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <div
+                class="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0"
+              >
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt text-xl"></i>
+                </a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-primary transition-colors"
+              >
+                Movie Website
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2"
+              >
+                A comprehensive movie website that you can watch everydays,
+                role-based access control.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-300"
+                  >JavaScript</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-300"
+                  >CSS</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-300"
+                  >SQL Server</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a
+                  href="https://github.com/meankunthea"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800 dark:bg-slate-700 text-white text-sm font-medium rounded-xl hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white text-sm font-medium rounded-xl hover:bg-primary-600 transition-colors"
+                >
+                  <i class="fas fa-play"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4 - Portfolio Website -->
+          <div
+            class="project-card group glass rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl reveal-up"
+            style="animation-delay: 0.45s"
+            data-category="frontend"
+          >
+            <div class="relative overflow-hidden h-60">
+              <img
+                src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=350&fit=crop"
+                alt="Portfolio Website"
+                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              ></div>
+              <div
+                class="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0"
+              >
+                <a
+                  href="https://github.com/meankunthea/Portfolio.git"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href=""
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white hover:bg-primary transition-colors duration-200"
+                >
+                  <i class="fas fa-external-link-alt text-xl"></i>
+                </a>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3
+                class="text-xl font-bold text-slate-800 dark:text-white mb-2 group-hover:text-primary transition-colors"
+              >
+                Personal Portfolio
+              </h3>
+              <p
+                class="text-slate-600 dark:text-slate-400 text-sm mb-4 line-clamp-2"
+              >
+                A modern, responsive portfolio website built with HTML, Tailwind
+                CSS, and JavaScript featuring dark mode and smooth animations.
+              </p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-300"
+                  >HTML5</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-teal-100 dark:bg-teal-900/30 text-teal-600 dark:text-teal-300"
+                  >Tailwind CSS</span
+                >
+                <span
+                  class="px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-300"
+                  >JavaScript</span
+                >
+              </div>
+              <div class="flex gap-3">
+                <a
+                  href="https://github.com/meankunthea/Portfolio.git"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-800 dark:bg-slate-700 text-white text-sm font-medium rounded-xl hover:bg-slate-700 dark:hover:bg-slate-600 transition-colors"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white text-sm font-medium rounded-xl hover:bg-primary-600 transition-colors"
+                >
+                  <i class="fas fa-play"></i> Read More
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- project 5 -  -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SERVICES SECTION ===================== -->
+    <section
+      id="services"
+      class="py-24 bg-slate-100/50 dark:bg-slate-900/50 relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-up">
+          <span
+            class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-sm font-semibold mb-4"
+            >My Services</span
+          >
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            What I
+            <span
+              class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >Offer</span
+            >
+          </h2>
+          <div
+            class="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-4"
+          ></div>
+          <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            I provide quality services to help you build your digital presence:
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Service 1 - Frontend Development -->
+          <div
+            class="service-card glass p-8 rounded-3xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group text-center reveal-up"
+          >
+            <div
+              class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white text-3xl shadow-lg shadow-primary/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
+            >
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">
+              Frontend Development
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6"
+            >
+              Building modern, interactive, and responsive web applications
+              using React.js, JavaScript, and the latest frontend technologies
+              with clean and maintainable code.
+            </p>
+            <ul
+              class="text-left space-y-2 text-sm text-slate-500 dark:text-slate-400"
+            >
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-primary text-xs"></i> Single Page
+                Applications
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-primary text-xs"></i> Interactive UI
+                Components
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-primary text-xs"></i> API
+                Integration
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-primary text-xs"></i> Performance
+                Optimization
+              </li>
+            </ul>
+          </div>
+
+          <!-- Service 2 - Web Design -->
+          <div
+            class="service-card glass p-8 rounded-3xl border border-slate-200 dark:border-slate-700 hover:border-secondary/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group text-center reveal-up"
+            style="animation-delay: 0.15s"
+          >
+            <div
+              class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-secondary to-pink-600 flex items-center justify-center text-white text-3xl shadow-lg shadow-secondary/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
+            >
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">
+              Web Design
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6"
+            >
+              Creating beautiful, modern, and user-centric designs that
+              captivate visitors and provide an exceptional user experience with
+              attention to every detail.
+            </p>
+            <ul
+              class="text-left space-y-2 text-sm text-slate-500 dark:text-slate-400"
+            >
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-secondary text-xs"></i> UI/UX Design
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-secondary text-xs"></i> Wireframing
+                & Prototyping
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-secondary text-xs"></i> Brand
+                Identity
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-secondary text-xs"></i> Design
+                Systems
+              </li>
+            </ul>
+          </div>
+
+          <!-- Service 3 - Responsive Development -->
+          <div
+            class="service-card glass p-8 rounded-3xl border border-slate-200 dark:border-slate-700 hover:border-accent/50 transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl group text-center reveal-up"
+            style="animation-delay: 0.3s"
+          >
+            <div
+              class="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-accent to-cyan-600 flex items-center justify-center text-white text-3xl shadow-lg shadow-accent/30 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
+            >
+              <i class="fas fa-mobile-alt"></i>
+            </div>
+            <h3 class="text-xl font-bold text-slate-800 dark:text-white mb-3">
+              Responsive Development
+            </h3>
+            <p
+              class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-6"
+            >
+              Ensuring your website looks stunning and works flawlessly on all
+              devices - from mobile phones to tablets and desktops with
+              pixel-perfect precision.
+            </p>
+            <ul
+              class="text-left space-y-2 text-sm text-slate-500 dark:text-slate-400"
+            >
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-accent text-xs"></i> Mobile-First
+                Approach
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-accent text-xs"></i> Cross-Browser
+                Testing
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-accent text-xs"></i> Fluid Layouts
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="fas fa-check text-accent text-xs"></i> Accessibility
+                (a11y)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EXPERIENCE SECTION ===================== -->
+    <section id="experience" class="py-24 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-up">
+          <span
+            class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-sm font-semibold mb-4"
+            >My Journey</span
+          >
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Education &
+            <span
+              class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >Experience</span
+            >
+          </h2>
+          <div
+            class="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-4"
+          ></div>
+          <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            My academic background and professional experience:
+          </p>
+        </div>
+
+        <!-- Timeline -->
+        <div class="relative">
+          <!-- Center Line -->
+          <div
+            class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent transform -translate-x-1/2"
+          ></div>
+
+          <!-- Timeline Items -->
+          <div class="space-y-12">
+            <!-- Item 1 - Bachelor's Degree -->
+            <div
+              class="timeline-item relative grid md:grid-cols-2 gap-8 items-center reveal-up"
+            >
+              <div class="md:text-right md:pr-12">
+                <div
+                  class="glass inline-block p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span
+                    class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-2"
+                    >2022 - 2025</span
+                  >
+                  <h3
+                    class="text-lg font-bold text-slate-800 dark:text-white mb-1"
+                  >
+                    Bachelor of Computer Sciences and Engineering
+                  </h3>
+                  <p class="text-primary font-medium text-sm mb-2">
+                    Royal University Of Phnom Penh
+                  </p>
+                  <p class="text-slate-600 dark:text-slate-400 text-sm">
+                    Currently pursuing a degree in IT, focusing on web
+                    development, software engineering, and database management.
+                  </p>
+                </div>
+              </div>
+              <!-- Dot -->
+              <div
+                class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+              >
+                <div
+                  class="w-5 h-5 rounded-full bg-primary border-4 border-white dark:border-dark shadow-lg"
+                ></div>
+              </div>
+              <div class="md:pl-12"></div>
+            </div>
+
+            <!-- Item 2 - Frontend  -->
+            <div
+              class="timeline-item relative grid md:grid-cols-2 gap-8 items-center reveal-up"
+              style="animation-delay: 0.15s"
+            >
+              <div class="md:pr-12 md:order-1 order-2"></div>
+              <!-- Dot -->
+              <div
+                class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+              >
+                <div
+                  class="w-5 h-5 rounded-full bg-secondary border-4 border-white dark:border-dark shadow-lg"
+                ></div>
+              </div>
+              <div class="md:pl-12 md:order-2 order-1">
+                <div
+                  class="glass inline-block p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-secondary/50 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span
+                    class="inline-block px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold mb-2"
+                    >2023-2024</span
+                  >
+                  <h3
+                    class="text-lg font-bold text-slate-800 dark:text-white mb-1"
+                  >
+                    Frontend Developer 
+                  </h3>
+                  
+                  <p class="text-slate-600 dark:text-slate-400 text-sm">
+                    Developing and maintaining responsive web applications,
+                    collaborating with the design team, and implementing UI
+                    components using React.js and Tailwind CSS.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Item 3 - Web Development Course -->
+            <div
+              class="timeline-item relative grid md:grid-cols-2 gap-8 items-center reveal-up"
+              style="animation-delay: 0.3s"
+            >
+              <div class="md:text-right md:pr-12">
+                <div
+                  class="glass inline-block p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-accent/50 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span
+                    class="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-semibold mb-2"
+                    >2024-2025</span
+                  >
+                  <h3
+                    class="text-lg font-bold text-slate-800 dark:text-white mb-1"
+                  >
+                    Web-app Development
+                  </h3>
+                  <p class="text-accent font-medium text-sm mb-2">
+                    Online Certification
+                  </p>
+                  <p class="text-slate-600 dark:text-slate-400 text-sm">
+                    Completed an intensive course covering HTML, CSS,
+                    JavaScript, React.js, Laravel, and database management with
+                    hands-on projects.
+                  </p>
+                </div>
+              </div>
+              <!-- Dot -->
+              <div
+                class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+              >
+                <div
+                  class="w-5 h-5 rounded-full bg-accent border-4 border-white dark:border-dark shadow-lg"
+                ></div>
+              </div>
+              <div class="md:pl-12"></div>
+            </div>
+
+            <!-- Item 4 - Freelance -->
+            <div
+              class="timeline-item relative grid md:grid-cols-2 gap-8 items-center reveal-up"
+              style="animation-delay: 0.45s"
+            >
+              <div class="md:pr-12 md:order-1 order-2"></div>
+              <!-- Dot -->
+              <div
+                class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+              >
+                <div
+                  class="w-5 h-5 rounded-full bg-gradient-to-r from-primary to-secondary border-4 border-white dark:border-dark shadow-lg"
+                ></div>
+              </div>
+              <div class="md:pl-12 md:order-2 order-1">
+                <div
+                  class="glass inline-block p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-300 hover:-translate-y-1"
+                >
+                  <span
+                    class="inline-block px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold mb-2"
+                    >2026 - Present</span
+                  >
+                  <h3
+                    class="text-lg font-bold text-slate-800 dark:text-white mb-1"
+                  >
+                    Freelance Web Developer
+                  </h3>
+                  <p class="text-primary font-medium text-sm mb-2">
+                    Self-Employed
+                  </p>
+                  <p class="text-slate-600 dark:text-slate-400 text-sm">
+                    Building websites and web applications for clients, from
+                    landing pages to web applications with modern
+                    technologies.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT SECTION ===================== -->
+    <section
+      id="contact"
+      class="py-24 bg-slate-100/50 dark:bg-slate-900/50 relative"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16 reveal-up">
+          <span
+            class="inline-block px-4 py-1.5 rounded-full bg-primary/10 dark:bg-primary/20 text-primary dark:text-primary-300 text-sm font-semibold mb-4"
+            >Get In Touch</span
+          >
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+            Contact
+            <span
+              class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+              >Me</span
+            >
+          </h2>
+          <div
+            class="w-24 h-1.5 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-4"
+          ></div>
+          <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
+            Have a project in mind or want to collaborate? I would love to hear from
+            you!
+          </p>
+        </div>
+
+        <div class="grid lg:grid-cols-5 gap-8">
+          <!-- Contact Info -->
+          <div class="lg:col-span-2 space-y-6 reveal-up">
+            <!-- Contact Cards -->
+            <div
+              class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all duration-300 flex items-start gap-4 group"
+            >
+              <div
+                class="w-14 h-14 rounded-xl bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary text-xl shrink-0 group-hover:bg-primary group-hover:text-white transition-all duration-300"
+              >
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-800 dark:text-white mb-1">
+                  Email
+                </h4>
+                <a
+                  href="mailto:your.email@example.com"
+                  class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm"
+                  >yourname.email@example.com</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-secondary/50 transition-all duration-300 flex items-start gap-4 group"
+            >
+              <div
+                class="w-14 h-14 rounded-xl bg-secondary/10 dark:bg-secondary/20 flex items-center justify-center text-secondary text-xl shrink-0 group-hover:bg-secondary group-hover:text-white transition-all duration-300"
+              >
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-800 dark:text-white mb-1">
+                  Phone
+                </h4>
+                <a
+                  href="tel:+04567890"
+                  class="text-slate-600 dark:text-slate-400 hover:text-secondary transition-colors text-sm"
+                  >+Tel: (0) 567-890</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-accent/50 transition-all duration-300 flex items-start gap-4 group"
+            >
+              <div
+                class="w-14 h-14 rounded-xl bg-accent/10 dark:bg-accent/20 flex items-center justify-center text-accent text-xl shrink-0 group-hover:bg-accent group-hover:text-white transition-all duration-300"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-slate-800 dark:text-white mb-1">
+                  Location
+                </h4>
+                <p class="text-slate-600 dark:text-slate-400 text-sm">
+                  Your City, Country
+                </p>
+              </div>
+            </div>
+
+            <!-- Social Links -->
+            <div
+              class="glass p-6 rounded-2xl border border-slate-200 dark:border-slate-700"
+            >
+              <h4 class="font-semibold text-slate-800 dark:text-white mb-4">
+                Follow Me
+              </h4>
+              <div class="flex gap-3">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-300"
+                  aria-label="GitHub"
+                >
+                  <i class="fab fa-github text-xl"></i>
+                </a>
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-[#0077b5] hover:text-white transition-all duration-300"
+                  aria-label="LinkedIn"
+                >
+                  <i class="fab fa-linkedin-in text-xl"></i>
+                </a>
+                <!-- <a
+                  href="https://twitter.com/yourusername"
+                  target="_blank"
+                  rel="noopener"
+                  class="w-12 h-12 rounded-xl bg-slate-200 dark:bg-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-[#1da1f2] hover:text-white transition-all duration-300"
+                  aria-label="Twitter"
+                >
+                  <i class="fab fa-twitter text-xl"></i>
+                </a> -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="lg:col-span-3 reveal-up" style="animation-delay: 0.2s">
+            <form
+              id="contact-form"
+              class="glass p-8 rounded-3xl border border-slate-200 dark:border-slate-700"
+            >
+              <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                <div>
+                  <label
+                    for="name"
+                    class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    >Your Name</label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Mean Kunthea"
+                    required
+                    class="w-full px-5 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                  />
+                </div>
+                <div>
+                  <label
+                    for="email"
+                    class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                    >Your Email</label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="kunthea@gmail.com"
+                    required
+                    class="w-full px-5 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                  />
+                </div>
+              </div>
+              <div class="mb-6">
+                <label
+                  for="subject"
+                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  >Subject</label
+                >
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Project Inquiry"
+                  required
+                  class="w-full px-5 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200"
+                />
+              </div>
+              <div class="mb-6">
+                <label
+                  for="message"
+                  class="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2"
+                  >Message</label
+                >
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="5"
+                  placeholder="Tell me about your project..."
+                  required
+                  class="w-full px-5 py-3.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-600 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                id="submit-btn"
+                class="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl shadow-lg shadow-primary/30 hover:shadow-primary/50 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+              >
+                <i class="fas fa-paper-plane"></i>
+                <span>Send Message</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer
+      class="relative overflow-hidden border-t border-slate-200 dark:border-slate-700"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid md:grid-cols-3 gap-8 items-center">
+          <!-- Logo & Copyright -->
+          <div class="text-center md:text-left">
+            <a href="#home" class="inline-flex items-center gap-3 mb-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-white font-bold text-lg"
+              >
+                P
+              </div>
+              <span
+                class="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+                >Portfolio</span
+              >
+            </a>
+            <p class="text-slate-500 dark:text-slate-400 text-sm">
+              &copy; <span id="year"></span> Rath. All rights reserved.
+            </p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="flex flex-wrap justify-center gap-6">
+            <a
+              href="#home"
+              class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              >Home</a
+            >
+            <a
+              href="#about"
+              class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              >About</a
+            >
+            <a
+              href="#skills"
+              class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              >Skills</a
+            >
+            <a
+              href="#projects"
+              class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              >Projects</a
+            >
+            <a
+              href="#contact"
+              class="text-sm text-slate-600 dark:text-slate-400 hover:text-primary transition-colors"
+              >Contact</a
+            >
+          </div>
+
+          <!-- Social Icons -->
+          <div class="flex justify-center md:justify-end gap-3">
+            <a
+              href="https://github.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-primary hover:text-white transition-all duration-300"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+            <a
+              href="https://linkedin.com/in/yourusername"
+              target="_blank"
+              rel="noopener"
+              class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-[#0077b5] hover:text-white transition-all duration-300"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a
+              href="https://twitter.com/yourusername"
+              target="_blank"
+              rel="noopener"
+              class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 hover:bg-[#1da1f2] hover:text-white transition-all duration-300"
+              aria-label="Twitter"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===================== BACK TO TOP BUTTON ===================== -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-8 right-8 w-12 h-12 rounded-full bg-gradient-to-r from-primary to-secondary text-white shadow-lg shadow-primary/30 flex items-center justify-center opacity-0 invisible translate-y-4 transition-all duration-300 hover:scale-110 hover:shadow-xl z-40"
+      aria-label="Back to top"
+    >
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script src="script.js"></script>
+  </body>
+</html>
